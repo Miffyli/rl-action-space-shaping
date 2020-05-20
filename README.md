@@ -7,16 +7,17 @@ Long story short: Removing some "unnecessary" actions can be crucial for learnin
 but converting multi-discrete spaces to discrete is not too helpful.
 
 ## Requirements
-* stable-baselines (v2.10.0)
-* rllib
-* cv2
-* [obstacle-tower-env](https://github.com/Unity-Technologies/obstacle-tower-env)
-* [ViZDoom](https://github.com/Marqt/ViZDoom/) (v1.1.7)
-* OpenAI Gym with Atari environments
-* Pillow
+
+See `requirements.txt` for most requirements. Additionally:
+
+* rllib (for running rllib experiments).
+* [obstacle-tower-env](https://github.com/Unity-Technologies/obstacle-tower-env) for running ObstacleTower experiments.
+* [PySC2](https://github.com/deepmind/pysc2) for running Starcraft 2 experiments.
 
 ## Running experiments
 
+In root directory, run `./scripts/run_all.sh`. If all goes well, this should create `experiments` directory
+with bunch of results. 
 
 ## Plotting
 

@@ -1,0 +1,7 @@
+tensorflow-gpu==1.14
+matplotlib
+stable-baselines
+opencv-python
+vizdoom
+gym[atari]
+pillow
