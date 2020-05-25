@@ -3,7 +3,12 @@ import os
 from gym.envs.registration import register
 from .get_to_goal_continuous import GetToGoalContinuous
 from .vizdoom_environment import DoomEnvironment
-from .obstacle_tower_env import ObstacleTowerEnv
+
+ObstacleTowerEnv = None
+try:
+    from .obstacle_tower_env import ObstacleTowerEnv
+except Exception:
+    print("[Warning] Could not import ObstacleTower env (is it installed?)")
 
 
 # --------------------------------------------------
@@ -375,44 +380,45 @@ for env_name, env_config, env_only_screen in VIZDOOM_ATTACK_ENVS:
 #
 # Obstacle Tower Env
 #
-OT_BUTTON_SETS = [
-    "full",
-    "minimal",
-    "backward",
-    "strafe",
-    "always-forward"
-]
-OT_BUTTON_SET_NAMES = [
-    "Full",
-    "Minimal",
-    "Backward",
-    "Strafe",
-    "AlwaysForward"
-]
+if ObstacleTowerEnv is not None:
+    OT_BUTTON_SETS = [
+        "full",
+        "minimal",
+        "backward",
+        "strafe",
+        "always-forward"
+    ]
+    OT_BUTTON_SET_NAMES = [
+        "Full",
+        "Minimal",
+        "Backward",
+        "Strafe",
+        "AlwaysForward"
+    ]
 
-for button_set, button_set_name in zip(OT_BUTTON_SETS, OT_BUTTON_SET_NAMES):
-    register(
-        id='ObstacleTower-{}-Discrete-v0'.format(button_set_name),
-        entry_point="envs.obstacle_tower_env:ObstacleTowerEnv",
-        kwargs={
-            'environment_filename': "envs/ObstacleTower/obstacletower",
-            'retro': True,
-            'realtime_mode': False,
-            'button_set': button_set,
-            'multidiscrete': False,
-            'config': {"total-floors": 6, "dense-reward": 1}
-        }
-    )
+    for button_set, button_set_name in zip(OT_BUTTON_SETS, OT_BUTTON_SET_NAMES):
+        register(
+            id='ObstacleTower-{}-Discrete-v0'.format(button_set_name),
+            entry_point="envs.obstacle_tower_env:ObstacleTowerEnv",
+            kwargs={
+                'environment_filename': "envs/ObstacleTower/obstacletower",
+                'retro': True,
+                'realtime_mode': False,
+                'button_set': button_set,
+                'multidiscrete': False,
+                'config': {"total-floors": 6, "dense-reward": 1}
+            }
+        )
 
-    register(
-        id='ObstacleTower-{}-MultiDiscrete-v0'.format(button_set_name),
-        entry_point="envs.obstacle_tower_env:ObstacleTowerEnv",
-        kwargs={
-            'environment_filename': "envs/ObstacleTower/obstacletower",
-            'retro': True,
-            'realtime_mode': False,
-            'button_set': button_set,
-            'multidiscrete': True,
-            'config': {"total-floors": 6, "dense-reward": 1}
-        }
-    )
+        register(
+            id='ObstacleTower-{}-MultiDiscrete-v0'.format(button_set_name),
+            entry_point="envs.obstacle_tower_env:ObstacleTowerEnv",
+            kwargs={
+                'environment_filename': "envs/ObstacleTower/obstacletower",
+                'retro': True,
+                'realtime_mode': False,
+                'button_set': button_set,
+                'multidiscrete': True,
+                'config': {"total-floors": 6, "dense-reward": 1}
+            }
+        )

@@ -15,8 +15,12 @@ from stable_baselines.common.atari_wrappers import ClipRewardEnv, FrameStack
 from envs.get_to_goal_continuous import GetToGoalContinuous
 from envs.vizdoom_environment import AppendFeaturesToImageWrapper
 from envs.atari_environment import make_atari
-from envs.obstacle_tower_env import OTEpisodicFloors
 from stable_baselines_utils import create_augmented_nature_cnn
+
+try:
+    from envs.obstacle_tower_env import OTEpisodicFloors
+except Exception:
+    print("[Warning] Could not import ObstacleTower environment (is it installed?)")
 
 parser = ArgumentParser("Run stable-baselines action-space experiments.")
 parser.add_argument("--output", type=str, required=True, help="Directory where to put results.")
