@@ -1,4 +1,4 @@
-rl-action-spaces-gettogoal-ppo-v0:
+rl-action-space-shaping-gettogoal-ppo-v0:
     run: PPO
     env: get_to_goal_env
     stop:
@@ -29,11 +29,12 @@ rl-action-spaces-gettogoal-ppo-v0:
             env_name:
                 grid_search:
                     - GetToGoal-Discrete-v0
-                    # - GetToGoal-MultiDiscrete-v0
-                    # - GetToGoal-TankDiscrete-v0
-                    # - GetToGoal-TankMultiDiscrete-v0
-                    # - GetToGoal-TankDiscreteContinuous-v0
-                    # - GetToGoal-Continuous-v0
+                    - GetToGoal-MultiDiscrete-v0
+                    - GetToGoal-TankDiscrete-v0
+                    - GetToGoal-TankMultiDiscrete-v0
+                    - GetToGoal-TankDiscreteContinuous-v0
+                    - GetToGoal-Continuous-v0
+            logging_path: "experiments/rllib-gettogoal"
 
         model:
             fcnet_activation: tanh

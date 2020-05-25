@@ -1,4 +1,4 @@
-rl-action-spaces-vizdoom-ppo-v3:
+rl-action-space-shaping-vizdoom-ppo-v3:
     run: PPO
     env: doom
     stop:
@@ -28,20 +28,19 @@ rl-action-spaces-vizdoom-ppo-v3:
         env_config:
             env_name:
                 grid_search:
-                    - ViZDoom-GetToGoal-Discrete1-Minimal-v0
-                    # - ViZDoom-GetToGoal-MultiDiscrete-Strafe-v0
-                    # - ViZDoom-GetToGoal-Mouse-Minimal-v0
-                    # - ViZDoom-GetToGoal-Mouse-Backward-v0
-                    # - ViZDoom-GetToGoal-Mouse-Strafe-v0
-                    # - ViZDoom-HGS-Discrete1-Minimal-v0
-                    # - ViZDoom-HGS-MultiDiscrete-Strafe-v0
-                    # - ViZDoom-HGS-Mouse-Minimal-v0
-                    # - ViZDoom-HGS-Mouse-Backward-v0
-                    # - ViZDoom-HGS-Mouse-Strafe-v0
-                    # - ViZDoom-Deathmatch-MultiDiscrete-Strafe-v0
-                    # - ViZDoom-Deathmatch-Mouse-Minimal-v0
-                    # - ViZDoom-Deathmatch-Mouse-Backward-v0
+                    - ViZDoom-GetToGoal-MultiDiscrete-Strafe-v0
+                    - ViZDoom-GetToGoal-Mouse-Minimal-v0
+                    - ViZDoom-GetToGoal-Mouse-Backward-v0
+                    - ViZDoom-GetToGoal-Mouse-Strafe-v0
+                    - ViZDoom-HGS-MultiDiscrete-Strafe-v0
+                    - ViZDoom-HGS-Mouse-Minimal-v0
+                    - ViZDoom-HGS-Mouse-Backward-v0
+                    - ViZDoom-HGS-Mouse-Strafe-v0
+                    - ViZDoom-Deathmatch-MultiDiscrete-Strafe-v0
+                    - ViZDoom-Deathmatch-Mouse-Minimal-v0
+                    - ViZDoom-Deathmatch-Mouse-Backward-v0
                     - ViZDoom-Deathmatch-Mouse-Strafe-v0
+            logging_path: "experiments/rllib-vizdoom"
 
         model:
             custom_model: doom_nature_model
