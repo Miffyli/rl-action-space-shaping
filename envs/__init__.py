@@ -1,3 +1,5 @@
+import os
+
 from gym.envs.registration import register
 from .get_to_goal_continuous import GetToGoalContinuous
 from .vizdoom_environment import DoomEnvironment
@@ -198,8 +200,8 @@ VIZDOOM_NAV_BUTTON_SETS = (
 # Different navigation envs (which only require buttons pointed above).
 # In order "Pretty name", "path to scenario", "only screen buffer"
 VIZDOOM_NAV_ENVS = (
-    ("GetToGoal", "doom_scenarios/get_to_goal.cfg", True),
-    ("HGS", "doom_scenarios/health_gathering_supreme.cfg", False),
+    ("GetToGoal", os.path.join(os.path.dirname(__file__), "../doom_scenarios/get_to_goal.cfg"), True),
+    ("HGS", os.path.join(os.path.dirname(__file__), "../doom_scenarios/health_gathering_supreme.cfg"), False),
 )
 
 for env_name, env_config, env_only_screen in VIZDOOM_NAV_ENVS:
@@ -291,7 +293,7 @@ VIZDOOM_ATTACK_BUTTON_SETS = (
 
 # Different shooting envs
 VIZDOOM_ATTACK_ENVS = (
-    ("Deathmatch", "doom_scenarios/deathmatch.cfg", False),
+    ("Deathmatch", os.path.join(os.path.dirname(__file__), "../doom_scenarios/deathmatch.cfg"), False),
 )
 
 for env_name, env_config, env_only_screen in VIZDOOM_ATTACK_ENVS:

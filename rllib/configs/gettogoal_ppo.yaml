@@ -1,0 +1,43 @@
+rl-action-spaces-gettogoal-ppo-v0:
+    run: PPO
+    env: get_to_goal_env
+    stop:
+        timesteps_total: 2000000  # 2.5e6
+    num_samples: 10
+    config:
+        lambda: 0.95
+        kl_coeff: 0
+        clip_rewards: False
+        clip_param: 0.2
+        vf_clip_param: 0.2
+        vf_loss_coeff: 0.5
+        grad_clip: 0.5
+        entropy_coeff: 0.01
+        train_batch_size: 2048
+        sample_batch_size: 256
+        sgd_minibatch_size: 512
+        num_sgd_iter: 4
+        num_workers: 1
+        num_envs_per_worker: 8
+        batch_mode: truncate_episodes
+        observation_filter: NoFilter
+        vf_share_layers: True
+        num_gpus: 0
+        lr: 2.5e-4
+
+        env_config:
+            env_name:
+                grid_search:
+                    - GetToGoal-Discrete-v0
+                    # - GetToGoal-MultiDiscrete-v0
+                    # - GetToGoal-TankDiscrete-v0
+                    # - GetToGoal-TankMultiDiscrete-v0
+                    # - GetToGoal-TankDiscreteContinuous-v0
+                    # - GetToGoal-Continuous-v0
+
+        model:
+            fcnet_activation: tanh
+            fcnet_hiddens: [64, 64]
+            vf_share_layers: False
+            use_lstm: False
+

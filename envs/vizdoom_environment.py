@@ -298,7 +298,7 @@ class DoomEnvironment(gym.Env):
             self.doomgame.add_available_button(button)
 
         if action_space_type == "mouse":
-            self.doomgame.add_available_button(vzd.Button.TURN_LEFT_RIGHT_DELTA)
+            self.doomgame.add_available_button(vz.Button.TURN_LEFT_RIGHT_DELTA)
 
         # Create actions according to action_space_type
         self.action_space_type = action_space_type

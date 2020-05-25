@@ -1,7 +1,11 @@
-tensorflow-gpu==1.14
+tensorflow-gpu==1.15
 matplotlib
 stable-baselines
 opencv-python
 vizdoom
 gym[atari]
 pillow
+ray[rllib]
+dm-sonnet==1.36
+requests
+mlagents==0.12.1
