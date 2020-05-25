@@ -8,11 +8,7 @@ but converting multi-discrete spaces to discrete is not too helpful.
 
 ## Requirements
 
-See `requirements.txt` for most requirements. Additionally:
-
-* rllib (for running rllib experiments).
-* [obstacle-tower-env](https://github.com/Unity-Technologies/obstacle-tower-env) for running ObstacleTower experiments.
-* [PySC2](https://github.com/deepmind/pysc2) for running Starcraft 2 experiments.
+See `requirements.txt` for most requirements. Additionally [obstacle-tower-env](https://github.com/Unity-Technologies/obstacle-tower-env) for running ObstacleTower experiments.
 
 ## Running experiments
 
