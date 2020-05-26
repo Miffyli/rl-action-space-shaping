@@ -6,6 +6,9 @@ Testing different ways of modifying action spaces in various environments, and h
 Long story short: Removing some "unnecessary" actions can be crucial for learning. Continuous actions should be discretized,
 but converting multi-discrete spaces to discrete is not too helpful.
 
+Note: This does not include Starcraft 2 experiment code as of yet, as it is part of ongoing research. The IMPALA implementation used for that is
+based on [Deepmind scalable-agents](https://github.com/deepmind/scalable_agent) code.
+
 ## Requirements
 
 See `requirements.txt` for most requirements. Additionally [obstacle-tower-env](https://github.com/Unity-Technologies/obstacle-tower-env) for running ObstacleTower experiments.
